@@ -1,6 +1,6 @@
-name: {{cookiecutter.step_name}}
+name: basic_cleaning
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - wandb=0.10.31
+  - wandb==0.10.31
