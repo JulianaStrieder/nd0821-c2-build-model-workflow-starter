@@ -104,9 +104,10 @@ def go(args):
     # Plot feature importance
     fig_feat_imp = plot_feature_importance(sk_pipe, processed_features)
 
-    run.summary['r2'] = r_squared
+    run.summary["r2"] = r_squared
 
     mae = mean_absolute_error(y_val, y_pred)
+    run.summary["MAE"] = mae
     logger.info(f"MAE: {mae}")
 
     # Upload to W&B the feature importance visualization
