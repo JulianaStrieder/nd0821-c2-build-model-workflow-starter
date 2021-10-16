@@ -1,11 +1,13 @@
-name: download_file
+name: download_file_teste
 channels:
   - conda-forge
+  - conda-forge/label/broken
   - defaults
 dependencies:
-  - pip=20.3.3
-  - requests=2.24.0
-  - mlflow=1.14.1
+  - pip=21.3
+  - requests= 2.25.1
+  - mlflow=1.20.2
+  - hydra-core=0.11.3
   - pip:
       - wandb==0.10.31
       - git+https://github.com/udacity/nd0821-c2-build-model-workflow-starter.git#egg=wandb-utils&subdirectory=components

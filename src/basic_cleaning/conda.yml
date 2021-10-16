@@ -1,6 +1,7 @@
 name: basic_cleaning
 channels:
   - conda-forge
+  - conda-forge/label/broken
   - defaults
 dependencies:
   - wandb==0.10.31
