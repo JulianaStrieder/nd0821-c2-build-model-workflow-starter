@@ -4,8 +4,11 @@ import scipy.stats
 
 
 def test_column_names(data):
+    """
+    Checks if the column names are right
+    """
 
-    expected_colums = [
+    expected_columns = [
         "id",
         "name",
         "host_id",
@@ -27,10 +30,13 @@ def test_column_names(data):
     these_columns = data.columns.values
 
     # This also enforces the same order
-    assert list(expected_colums) == list(these_columns)
+    assert list(expected_columns) == list(these_columns)
 
 
 def test_neighborhood_names(data):
+    """
+    Checks for misspelled neighborhood names
+    """
 
     known_names = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]
 
@@ -60,6 +66,22 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
     assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold
 
 
-########################################################
-# Implement here test_row_count and test_price_range   #
-########################################################
+def test_row_count(data):
+    """
+    Checks that the size of the dataset is reasonable.
+    Args:
+        data: data frame to be tested
+    """
+    assert 15000 < data.shape[0] < 1000000
+
+
+def test_price_range(data, min_price, max_price):
+    """
+    Checks that the price range is between min_price and max_price.
+    Args:
+        data: data frame to be tested
+        min_price: min price value
+        max_price: max price value
+    """
+    assert min(data["price"]) >= min_price
+    assert max(data["price"]) <= max_price

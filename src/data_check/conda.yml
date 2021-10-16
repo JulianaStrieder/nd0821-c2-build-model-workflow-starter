@@ -1,9 +1,10 @@
 name: data_check
 channels:
   - conda-forge
+  - conda-forge/label/broken
   - defaults
 dependencies:
   - pandas=1.3.3
   - pytest=6.2.2
   - scipy=1.5.2
-  - wandb=0.10.21
+  - wandb=0.10.31

@@ -29,8 +29,8 @@ def go(args):
     df_original = pd.read_csv(artifact_local_path)
 
     logger.info("Drop outliers")
-    min_price = 10
-    max_price = 350
+    min_price = args.min_price
+    max_price = args.max_price
     idx = df_original["price"].between(min_price, max_price)
     df_original = df_original[idx].copy()
 
