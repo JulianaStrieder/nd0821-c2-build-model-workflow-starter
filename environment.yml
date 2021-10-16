@@ -1,6 +1,7 @@
 name: nyc_airbnb_dev
 channels:
   - conda-forge
+  - conda-forge/label/broken
   - defaults
 dependencies:
   - mlflow=1.20.2
