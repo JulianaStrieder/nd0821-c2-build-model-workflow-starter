@@ -4,19 +4,30 @@ conda_env: conda.yml
 entry_points:
   main:
     parameters:
-
-      parameter1:
-        description: ## ADD DESCRIPTION
+      input_artifact:
+        description: Specifies the input artifact
         type: string
 
-      parameter2:
-        description: ## ADD DESCRIPTION
+      output_artifact:
+        description: Specifies the output artifact
         type: string
 
-      parameter3:
-        description: ## ADD DESCRIPTION
+      output_type:
+        description: Specifies the file type for output
         type: string
 
+      min_price:
+        description: Min price value
+        type: float
+
+      max_price:
+        description: Max price value
+        type: float
 
     command: >-
-        python run.py  --parameter1 {parameter1}  --parameter2 {parameter2}  --parameter3 {parameter3} 
+        python run.py \
+          --input_artifact {input_artifact} \
+          --output_artifact {output_artifact} \
+          --output_type {output_type} \
+          --min_price {min_price} \
+          --max_price {max_price}
